@@ -16,7 +16,6 @@
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
     <None Remove="Entities\" />
     <None Remove="EntityConfiguration\" />
-    <None Remove="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
@@ -35,6 +34,5 @@
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="EntityConfiguration\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 </Project>

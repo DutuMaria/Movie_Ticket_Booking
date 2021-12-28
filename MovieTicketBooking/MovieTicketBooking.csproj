@@ -29,4 +29,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.13" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MovieTicketBooking.DAL\MovieTicketBooking.DAL.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MovieTicketBooking.csproj" />
+  </ItemGroup>
 </Project>

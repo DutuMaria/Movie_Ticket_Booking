@@ -54,8 +54,6 @@ namespace MovieTicketBooking.DAL
             modelBuilder.ApplyConfiguration(new SeatConfiguration());
             modelBuilder.ApplyConfiguration(new ScreeningConfiguration());
             modelBuilder.ApplyConfiguration(new TicketConfiguration());
-
-
         }
     }
 }
