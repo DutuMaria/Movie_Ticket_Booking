@@ -6,3 +6,4 @@ MovieTicketBooking.DAL/bin/
 .DS_Store
 MovieTicketBooking.BLL/bin/
 MovieTicketBooking.BLL/obj/
+MovieTicketBooking - Frontend/node_modules/

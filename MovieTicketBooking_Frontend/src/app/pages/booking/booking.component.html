@@ -1,0 +1,35 @@
+<h1>Book a movie</h1>
+<div class ="grid-formular-booking">
+    <form [formGroup]= "bookingForm" (ngSubmit)="doBooking()">
+        <div class="form-group w-50">
+            <label>Movies</label>
+            <div class="input-group">
+                <select>
+                    <option *ngFor = "let movie of movies">{{movie.title}}</option>
+                </select> 
+            </div>
+        </div>
+        <div class="form-group w-50">
+            <label>Program</label>
+            <div class="input-group">
+                <select class="form-control" 
+                [ngClass]= "bookingForm.controls['screeningId'].errors ? 'is-invalid' : ''"
+                formControlName="screeningId">
+                    <option *ngFor = "let screening of screenings" value="{{screening.id}}">{{screening.startDate}}</option>
+                </select> 
+            </div>
+        </div>
+        <div class="form-group w-50">
+            <label>Number of Tickets</label>
+            <div class="input-group">
+                <input class="form-control" 
+                [ngClass]= "bookingForm.controls['nrOfTickets'].errors ? 'is-invalid' : ''"
+                formControlName="nrOfTickets"/> 
+            </div>
+        </div>
+        <br>
+        <button [disabled]="bookingForm.invalid" type="submit" class="btn btn-success">Book</button>
+        <br>
+        <br>
+    </form>
+</div>
