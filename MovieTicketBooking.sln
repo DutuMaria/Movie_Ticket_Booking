@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking", "Movie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking.DAL", "MovieTicketBooking.DAL\MovieTicketBooking.DAL.csproj", "{BFEAE368-A5AB-4A40-80C6-B90AD6907D04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking.BLL", "MovieTicketBooking.BLL\MovieTicketBooking.BLL.csproj", "{0DFD44A1-53D6-4524-9AA9-F86AE1ED5147}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BFEAE368-A5AB-4A40-80C6-B90AD6907D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFEAE368-A5AB-4A40-80C6-B90AD6907D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFEAE368-A5AB-4A40-80C6-B90AD6907D04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DFD44A1-53D6-4524-9AA9-F86AE1ED5147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DFD44A1-53D6-4524-9AA9-F86AE1ED5147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DFD44A1-53D6-4524-9AA9-F86AE1ED5147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DFD44A1-53D6-4524-9AA9-F86AE1ED5147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

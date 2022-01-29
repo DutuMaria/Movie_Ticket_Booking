@@ -10,8 +10,8 @@ using MovieTicketBooking.DAL;
 namespace MovieTicketBooking.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211228194839_AddedEntities")]
-    partial class AddedEntities
+    [Migration("20220126141450_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -160,19 +160,21 @@ namespace MovieTicketBooking.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
-                        .ValueGeneratedOnAdd()
+                        .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
-                        .HasDefaultValue("economy");
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
                     b.Property<string>("Genre")
-                        .ValueGeneratedOnAdd()
+                        .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasDefaultValue("economy");
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Image")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -250,7 +252,7 @@ namespace MovieTicketBooking.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("EndDate")
-                        .HasColumnType("Date");
+                        .HasColumnType("DateTime");
 
                     b.Property<int>("HallId")
                         .HasColumnType("int");
@@ -259,12 +261,11 @@ namespace MovieTicketBooking.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
-                        .HasColumnType("Date");
+                        .HasColumnType("DateTime");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HallId")
-                        .IsUnique();
+                    b.HasIndex("HallId");
 
                     b.HasIndex("MovieId");
 
@@ -480,8 +481,8 @@ namespace MovieTicketBooking.DAL.Migrations
             modelBuilder.Entity("MovieTicketBooking.DAL.Entities.Screening", b =>
                 {
                     b.HasOne("MovieTicketBooking.DAL.Entities.Hall", "Hall")
-                        .WithOne("Screening")
-                        .HasForeignKey("MovieTicketBooking.DAL.Entities.Screening", "HallId")
+                        .WithMany("Screenings")
+                        .HasForeignKey("HallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -511,11 +512,13 @@ namespace MovieTicketBooking.DAL.Migrations
                 {
                     b.HasOne("MovieTicketBooking.DAL.Entities.Booking", "Booking")
                         .WithMany("Tickets")
-                        .HasForeignKey("BookingId");
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("MovieTicketBooking.DAL.Entities.Screening", "Screening")
                         .WithMany("Tickets")
-                        .HasForeignKey("ScreeningId");
+                        .HasForeignKey("ScreeningId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("MovieTicketBooking.DAL.Entities.Seat", "Seat")
                         .WithOne("Ticket")
@@ -566,7 +569,7 @@ namespace MovieTicketBooking.DAL.Migrations
 
             modelBuilder.Entity("MovieTicketBooking.DAL.Entities.Hall", b =>
                 {
-                    b.Navigation("Screening");
+                    b.Navigation("Screenings");
 
                     b.Navigation("Seats");
                 });

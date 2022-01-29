@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MovieTicketBooking.DAL.Migrations
 {
-    public partial class AddedEntities : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,9 +70,10 @@ namespace MovieTicketBooking.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true, defaultValue: "economy"),
+                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     Duration = table.Column<int>(type: "int", nullable: false),
-                    Genre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true, defaultValue: "economy")
+                    Genre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -246,8 +247,8 @@ namespace MovieTicketBooking.DAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StartDate = table.Column<DateTime>(type: "Date", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "Date", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "DateTime", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "DateTime", nullable: false),
                     HallId = table.Column<int>(type: "int", nullable: false),
                     MovieId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -308,14 +309,12 @@ namespace MovieTicketBooking.DAL.Migrations
                         name: "FK_Tickets_Bookings_BookingId",
                         column: x => x.BookingId,
                         principalTable: "Bookings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Tickets_Screenings_ScreeningId",
                         column: x => x.ScreeningId,
                         principalTable: "Screenings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Tickets_Seats_SeatId",
                         column: x => x.SeatId,
@@ -387,8 +386,7 @@ namespace MovieTicketBooking.DAL.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Screenings_HallId",
                 table: "Screenings",
-                column: "HallId",
-                unique: true);
+                column: "HallId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Screenings_MovieId",

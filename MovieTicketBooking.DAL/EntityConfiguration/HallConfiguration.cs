@@ -17,7 +17,7 @@ namespace MovieTicketBooking.DAL.EntityConfiguration
 
             builder.Property(p => p.Name)
                 .HasColumnType("nvarchar(50)")
-                 .HasMaxLength(50)
+                .HasMaxLength(50)
                 .IsRequired();
 
             builder.Property(p => p.Capacity)

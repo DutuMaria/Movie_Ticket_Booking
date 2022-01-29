@@ -1,6 +1,6 @@
-﻿using MovieTicketBooking.DAL.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using MovieTicketBooking.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,16 +16,19 @@ namespace MovieTicketBooking.DAL.EntityConfiguration
             builder.HasKey(x => x.Id);
 
             builder.Property(p => p.StartDate)
-                .HasColumnType("Date")
+                .HasColumnType("DateTime")
                 .IsRequired();
 
             builder.Property(p => p.EndDate)
-                .HasColumnType("Date")
-                .IsRequired();
+                .HasColumnType("DateTime");
+
+            builder.HasIndex(p => p.HallId)
+                .IsUnique(false);
 
             builder.HasOne(p => p.Hall)
-               .WithOne(p => p.Screening)
-               .HasForeignKey<Screening>(p => p.HallId);
+              .WithMany(p => p.Screenings)
+              .HasForeignKey(p => p.HallId);
+
 
             builder.HasOne(p => p.Movie)
                 .WithMany(p => p.Screenings)

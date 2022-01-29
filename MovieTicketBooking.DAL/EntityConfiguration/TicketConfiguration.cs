@@ -17,19 +17,19 @@ namespace MovieTicketBooking.DAL.EntityConfiguration
 
             builder.Property(p => p.Price)
               .HasColumnType("decimal(4,2)")
-              .IsRequired();
+              .HasDefaultValue(20);
+              //.IsRequired();
 
             builder.HasOne(p => p.Booking)
                .WithMany(p => p.Tickets)
-               .HasForeignKey(p => p.BookingId);
+               .HasForeignKey(p => p.BookingId)
+               .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasOne(p => p.Screening)
-               .WithMany(p => p.Tickets)
-               .HasForeignKey(p => p.ScreeningId);
 
             builder.HasOne(p => p.Seat)
-                .WithOne(p => p.Ticket)
-                .HasForeignKey<Ticket>(p => p.SeatId);
+                .WithMany(p => p.Tickets)
+                .HasForeignKey(p => p.SeatId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace MovieTicketBooking.DAL.EntityConfiguration
 
             builder.Property(p => p.Date)
                 .HasColumnType("Date")
+                .HasDefaultValueSql("getdate()")
                 .IsRequired();
 
             builder.Property(p => p.NrOfTickets)
@@ -27,6 +28,10 @@ namespace MovieTicketBooking.DAL.EntityConfiguration
             builder.HasOne(p => p.User)
                 .WithMany(p => p.Bookings)
                 .HasForeignKey(p => p.UserId);
+
+            builder.HasOne(p => p.Screening)
+                .WithMany(p => p.Bookings)
+                .HasForeignKey(p => p.ScreeningId);
         }
     }
 }

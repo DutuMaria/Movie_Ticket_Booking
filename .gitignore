@@ -4,3 +4,5 @@ MovieTicketBooking/obj/
 MovieTicketBooking/bin/
 MovieTicketBooking.DAL/bin/
 .DS_Store
+MovieTicketBooking.BLL/bin/
+MovieTicketBooking.BLL/obj/

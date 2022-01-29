@@ -14,6 +14,6 @@ namespace MovieTicketBooking.DAL.Entities
         public string Name { get; set; }
         public int Capacity { get; set; }
         public virtual ICollection<Seat> Seats { get; set; }
-        public virtual Screening Screening { get; set; }
+        public virtual ICollection<Screening> Screenings { get; set; }
     }
 }

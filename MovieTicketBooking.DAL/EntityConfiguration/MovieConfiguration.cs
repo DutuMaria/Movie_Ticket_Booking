@@ -24,7 +24,7 @@ namespace MovieTicketBooking.DAL.EntityConfiguration
             builder.Property(p => p.Description)
                 .HasColumnType("nvarchar(500)")
                 .HasMaxLength(500)
-                .HasDefaultValue("economy");
+                .IsRequired();
 
             builder.Property(p => p.Duration)
                 .HasColumnType("int")
@@ -33,7 +33,11 @@ namespace MovieTicketBooking.DAL.EntityConfiguration
             builder.Property(p => p.Genre)
                 .HasColumnType("nvarchar(50)")
                 .HasMaxLength(50)
-                .HasDefaultValue("economy");
+                .IsRequired();
+
+            builder.Property(p => p.Image)
+                .HasColumnType("nvarchar(100)")
+                .HasMaxLength(100);
 
         }
     }
