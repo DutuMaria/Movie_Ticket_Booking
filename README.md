@@ -38,8 +38,8 @@
     - [x] See information about a movie 
     - If user is logged in:
         - [x] Booking movies
-        - [x] Deleting your bookings
-        - [x] Viewing ypur bookings
+        - [x] Deleting bookings
+        - [x] Viewing bookings
 - For admins
     - [x] Adding/Updating/Deleting a movie
     - [x] Viewing all users
