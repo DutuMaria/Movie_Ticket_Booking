@@ -3,10 +3,10 @@
 ### __Database__:
 
 
-##### __Entity-Relationship Diagram__
+#### __Entity-Relationship Diagram__
 ![](/MovieTicketBooking_Frontend/src/assets/diagrama.png)
 
-##### __Entities__
+#### __Entities__
 - User (inherited from Microsoft Asp Net Core Identity)
 - Role (inherited from Microsoft Asp Net Core Identity)
 - UserRole (inherited from Microsoft Asp Net Core Identity)
@@ -19,7 +19,7 @@
 - Ticket
     
 
-##### __Relationships__
+#### __Relationships__
 - One to one
     - Booking and Payment
 - One to many
