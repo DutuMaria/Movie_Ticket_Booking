@@ -45,5 +45,5 @@
     - [x] Viewing all users
     - [x] Updating a booking
 
-
+![](/MovieTicketBooking_Frontend/src/assets/centralCinema.gif)
 
