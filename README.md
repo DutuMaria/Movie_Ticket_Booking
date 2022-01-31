@@ -7,28 +7,28 @@
 ![](/MovieTicketBooking_Frontend/src/assets/diagrama.png)
 
 ##### __Entities__
-    - User (inherited from Microsoft Asp Net Core Identity)
-    - Role (inherited from Microsoft Asp Net Core Identity)
-    - UserRole (inherited from Microsoft Asp Net Core Identity)
-    - Movie
-    - Screening
-    - Booking
-    - Payment
-    - Hall
-    - Seat
-    - Ticket
+- User (inherited from Microsoft Asp Net Core Identity)
+- Role (inherited from Microsoft Asp Net Core Identity)
+- UserRole (inherited from Microsoft Asp Net Core Identity)
+- Movie
+- Screening
+- Booking
+- Payment
+- Hall
+- Seat
+- Ticket
     
 
 ##### __Relationships__
-    - One to one
-        - Booking and Payment
-    - One to many
-        - Movie and Screening
-        - Screening and Booking
-        - Hall and Screening
-        - Hall and Seat
-    - Many to many
-        - Booking and Seat => Ticket
+- One to one
+    - Booking and Payment
+- One to many
+    - Movie and Screening
+    - Screening and Booking
+    - Hall and Screening
+    - Hall and Seat
+- Many to many
+    - Booking and Seat => Ticket
 
 ### __Functionalities__:
 
